@@ -1,0 +1,83 @@
+      <div id="pdf-capture-target" class="min-h-screen bg-slate-100 py-8 px-4 print:p-0 print:bg-white flex justify-center">
+        <div class="bg-white shadow-2xl w-full max-w-[210mm] min-h-[297mm] p-8 print:shadow-none print:max-w-none print:min-h-screen box-border flex flex-col">
+          <div class="border-[3px] border-[#48b1bf] flex-grow flex flex-col p-6 md:p-12 relative">
+            <header class="text-center mb-6">
+              <div class="flex justify-center mb-4">
+                <img ngSrc="/logo.png" alt="Hospital" width="80" height="80" class="object-contain" onerror="this.style.display='none'">
+              </div>
+              <h1 class="text-[#117a8b] text-3xl md:text-4xl font-serif tracking-widest uppercase font-bold mb-4">Hospital</h1>
+              <div class="text-gray-600 text-sm md:text-base">
+                <p>Address: {{patientData?.address}}</p>
+              </div>
+            </header>
+
+            <div class="h-[2px] bg-[#48b1bf] w-full mb-8"></div>
+
+            <section class="space-y-6 mb-10">
+              <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+                <div class="md:col-span-6 flex items-end">
+                  <span class="text-sm font-medium text-gray-700 mr-2">Patient Name: {{patientData?.name}}</span>
+                  <div class="flex-grow border-b border-gray-300 h-6"></div>
+                </div>
+                <div class="md:col-span-3 flex items-end">
+                  <span class="text-sm font-medium text-gray-700 mr-2">Age: {{patientData?.age}}</span>
+                  <div class="flex-grow border-b border-gray-300 h-6"></div>
+                </div>
+                <!--<div class="md:col-span-3 flex items-end">
+                  <span class="text-sm font-medium text-gray-700 mr-2">Gender: {{patientData?.gender}}</span>
+                  <div class="flex-grow border-b border-gray-300 h-6"></div>
+                </div>-->
+              </div>
+            </section>
+
+            <div class="mb-4">
+              <span class="text-5xl font-serif font-bold italic text-gray-800">R<sub class="text-3xl ml-[-4px]">x</sub></span>
+            </div>
+
+            <main class="flex-grow"></main>
+
+            <footer class="mt-auto pt-8">
+              <div class="flex justify-end items-end mb-6">
+                <div class="w-full max-w-[300px] flex items-end">
+                 <main class="flex-grow">
+  @if (prescriptionService.savePatientData?.medications?.length) {
+    <table class="w-full text-left mb-6 border border-[#48b1bf] border-collapse">
+      <thead>
+        <tr class="bg-[#e8f7f9] text-[#117a8b]">
+          <th class="py-2 px-3 border border-[#48b1bf] font-semibold">Medicamento</th>
+          <th class="py-2 px-3 border border-[#48b1bf] font-semibold">Dosis</th>
+          <th class="py-2 px-3 border border-[#48b1bf] font-semibold">Frecuencia</th>
+          <th class="py-2 px-3 border border-[#48b1bf] font-semibold">Vía</th>
+          <th class="py-2 px-3 border border-[#48b1bf] font-semibold">Días</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (med of prescriptionService.savePatientData.medications; track $index) {
+          <tr class="even:bg-gray-50">
+            <td class="py-2 px-3 border border-gray-300 font-semibold">{{ med.medicine }}</td>
+            <td class="py-2 px-3 border border-gray-300">{{ med.mg }}mg</td>
+            <td class="py-2 px-3 border border-gray-300 italic">{{ med.useType }}</td>
+            <td class="py-2 px-3 border border-gray-300">{{ med.route }}</td>
+            <td class="py-2 px-3 border border-gray-300 text-center">{{ med.days }} día(s)</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+
+  @if (prescriptionService.savePatientData?.extraNotes) {
+    <div class="mt-4 p-4 bg-gray-50 border-l-4 border-[#48b1bf]">
+      <h4 class="text-xs font-bold uppercase text-gray-500 mb-1">Indicaciones Adicionales:</h4>
+      <p class="text-gray-800 whitespace-pre-wrap">{{ prescriptionService.savePatientData.extraNotes }}</p>
+    </div>
+  }
+</main>
+                  <div class="flex-grow border-b border-gray-400"></div>
+                </div>
+              </div>
+              <div class="h-[2px] bg-[#48b1bf] w-full mb-2"></div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    

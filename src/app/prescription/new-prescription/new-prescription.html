@@ -1,0 +1,88 @@
+ <div class="min-h-screen bg-slate-100 py-8 px-4 print:p-0 print:bg-white flex justify-center">
+      <!-- Main Prescription Card -->
+      <div class="bg-white shadow-2xl w-full max-w-[210mm] min-h-[297mm] p-8 print:shadow-none print:max-w-none print:min-h-screen box-border flex flex-col">
+        
+        <!-- The Decorative Teal Border Container -->
+        <div class="border-[3px] border-[#48b1bf] flex-grow flex flex-col p-6 md:p-12 relative">
+          
+          <!-- Header Section -->
+          <header class="text-center mb-6">
+            <h1 class="text-[#117a8b] text-3xl md:text-4xl font-serif tracking-widest uppercase font-bold mb-4">
+              {{ hospitalName() }}
+            </h1>
+            
+            <div class="text-gray-600 text-sm md:text-base leading-relaxed">
+              <p class="text-lg font-semibold text-gray-800">
+                Dr. {{ doctorName() }} <span class="text-xs font-normal ml-1">{{ credentials() }}</span>
+              </p>
+              <p>{{ addressLine1() }}</p>
+              <p>{{ addressLine2() }}</p>
+              <p class="mt-1">PH: {{ phone() }}</p>
+              <p>FAX: {{ fax() }}</p>
+            </div>
+          </header>
+
+          <!-- Divider -->
+          <div class="h-[2px] bg-[#48b1bf] w-full mb-8"></div>
+
+          <!-- Patient Info Section -->
+          <section class="space-y-6 mb-10">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+              <div class="md:col-span-6 flex items-end">
+                <span class="text-sm font-medium text-gray-700 whitespace-nowrap mr-2">Patient Name:</span>
+                <div class="flex-grow border-b border-gray-300 h-6"></div>
+              </div>
+              <div class="md:col-span-3 flex items-end">
+                <span class="text-sm font-medium text-gray-700 whitespace-nowrap mr-2">Age:</span>
+                <div class="flex-grow border-b border-gray-300 h-6"></div>
+              </div>
+              <div class="md:col-span-3 flex items-end">
+                <span class="text-sm font-medium text-gray-700 whitespace-nowrap mr-2">Gender:</span>
+                <div class="flex-grow border-b border-gray-300 h-6"></div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+              <div class="md:col-span-8 flex items-end">
+                <span class="text-sm font-medium text-gray-700 whitespace-nowrap mr-2">Address:</span>
+                <div class="flex-grow border-b border-gray-300 h-6"></div>
+              </div>
+              <div class="md:col-span-4 flex items-end">
+                <span class="text-sm font-medium text-gray-700 whitespace-nowrap mr-2">Date:</span>
+                <div class="flex-grow border-b border-gray-300 h-6"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Rx Symbol Section -->
+          <div class="mb-4">
+            <span class="text-5xl font-serif font-bold italic text-gray-800">R<sub class="text-3xl ml-[-4px]">x</sub></span>
+          </div>
+
+          <!-- Main Body (Empty for writing/typing) -->
+          <main class="flex-grow">
+            <!-- Content area -->
+          </main>
+
+          <!-- Footer Section -->
+          <footer class="mt-auto pt-8">
+            <div class="flex justify-end items-end mb-6">
+              <div class="w-full max-w-[300px]">
+                <div class="flex items-end">
+                   <span class="text-sm text-gray-600 mr-2 whitespace-nowrap">Doctor's Signature:</span>
+                   <div class="flex-grow border-b border-gray-400"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="h-[2px] bg-[#48b1bf] w-full mb-2"></div>
+            
+            <div class="text-center">
+              <a [href]="'mailto:' + email()" class="text-[#48b1bf] text-xs hover:underline">
+                {{ email() }}
+              </a>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>

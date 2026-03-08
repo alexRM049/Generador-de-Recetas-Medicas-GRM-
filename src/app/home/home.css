@@ -1,0 +1,27 @@
+.hero-container {
+  /* High-quality background setup */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                    url('/start-images.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Make it full screen or define a specific height */
+  height: 100vh; 
+  width: 100vw;
+
+  /* Flexbox makes centering the 'top' elements easy */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.title {
+  
+}
+
+.subtitle{
+  
+}

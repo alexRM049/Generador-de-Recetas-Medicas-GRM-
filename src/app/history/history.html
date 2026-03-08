@@ -1,0 +1,14 @@
+<app-header></app-header>
+
+<div class="container mt-4">
+  <div class="row">
+    @for (recetasItem of listaRecetas; track recetasItem.id) {
+      <div class="col-md-6 col-lg-4 mb-4"> <app-receta-card [receta]="recetasItem"></app-receta-card>
+      </div>
+    } @empty {
+      <div class="text-center">
+        <p class="text-muted">No prescriptions found.</p>
+      </div>
+    }
+  </div>
+</div>

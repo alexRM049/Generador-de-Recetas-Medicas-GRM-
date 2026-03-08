@@ -1,0 +1,23 @@
+.custom-navbar {
+  background-color: rgba(255, 255, 255, 0.9); /* White with slight transparency */
+  backdrop-filter: blur(10px); /* Modern "frosted glass" effect */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  transition: all 0.3s ease;
+}
+
+/* Let's make the links look more medical/professional */
+.custom-navbar .navbar-brand {
+  font-weight: bold;
+  color: #2c3e50; /* Deep medical blue/gray */
+}
+
+.custom-navbar .nav-link {
+  color: #546e7a !important;
+  font-weight: 500;
+  margin-right: 15px;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #007bff !important; /* Blue highlight on hover */
+}
